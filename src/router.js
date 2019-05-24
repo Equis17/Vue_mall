@@ -1,12 +1,10 @@
 import VueRouter from 'vue-router'
-import account from './main/Account.vue'
-import goodslist from './main/GoodsList.vue'
+import homeComponent from "./components/tabbar/homeComponent.vue";
 
 const router = new VueRouter({
     routes: [
-        {path: '/account', component: account},
-        {path: '/goodlist', component: goodslist}
-    ]
+        {path: '/', component: homeComponent}
+        ]
 });
 
 export default router
