@@ -1,15 +1,14 @@
 <template>
     <div>
-        <h3>login</h3>
+        <h3>account</h3>
     </div>
 </template>
 
 <script>
     export default {
-        name: "login"
+        name: "Account"
     }
 </script>
 
 <style scoped>
-
 </style>

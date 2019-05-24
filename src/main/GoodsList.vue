@@ -1,12 +1,12 @@
 <template>
-    <div><h3>
-        register
-    </h3></div>
+    <div>
+        <h1>goodslist</h1>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "register"
+        name: "GoodsList"
     }
 </script>
 
