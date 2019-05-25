@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import app from './app.vue'
-import mintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-import './lib/mui/css/mui.min.css'
+import VueResource from 'vue-resource'
+
 Vue.use(VueRouter);
-Vue.use(mintUI);
+Vue.use(VueResource);
+
+//导入路由
 import router from './router.js'
+
+//初始化渲染App
+import App from './app.vue'
 new Vue({
     el: '#app',
-    render:(m)=>{return m(app)},
+    render:(r)=>{return r(App)},
     router
 });
