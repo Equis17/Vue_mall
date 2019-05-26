@@ -11,8 +11,11 @@ import router from './router.js'
 import '../src/assets/scss/_index.scss'
 //初始化渲染App
 import App from './app.vue'
+
 new Vue({
     el: '#app',
-    render:(r)=>{return r(App)},
+    render: (r) => {
+        return r(App)
+    },
     router
 });

@@ -9,8 +9,8 @@
         </vNavBar>
         <vNavBar class="mid-bar">
             <ul class="mid-bar-center" slot="center">
-                <li v-for="item in midList"
-                    :key=item.title>
+                <li v-for="(item,index) in midList"
+                    :key=index>
                     <router-link
                             :to=item
                             :class="{'mid-bar-center-li-active':item.isActive}">
@@ -27,7 +27,7 @@
     import vNavBar from '../../base/navbar/index.vue'
 
     export default {
-        name: "header",
+        name: "homeTop",
         data: () => {
             return {
                 midList: [
@@ -42,7 +42,7 @@
             }
         },
         components: {
-            vNavBar
+            vNavBar:vNavBar
         }
     }
 </script>
