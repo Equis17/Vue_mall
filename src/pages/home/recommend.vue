@@ -1,59 +1,19 @@
 <template>
     <div>
-        <vBanner class="banner">
-            <div class="banner-top" slot="top">
-                <img src="/src/pages/home/recommend-head.jpg" alt="">
-            </div>
-            <ul class="banner-bottom" slot="bottom">
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-            </ul>
-        </vBanner>
-        <vBanner class="banner">
-            <div class="banner-top" slot="top">
-                <img src="/src/pages/home/recommend-head.jpg" alt="">
-            </div>
-            <ul class="banner-bottom" slot="bottom">
-                <li class="banner-bottom-item">
-                    <img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg" alt="">
-                    <img class="banner-bottom-item-brand" src="/src/pages/home/span.png" alt="">
-                    <span class="banner-bottom-item-span">98</span>
-                </li>
-                <li class="banner-bottom-item">
-                    <img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg" alt="">
-                    <img class="banner-bottom-item-brand" src="/src/pages/home/span.png" alt="">
-                    <span class="banner-bottom-item-span">98</span>
-                </li>
-                <li class="banner-bottom-item">
-                    <img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg" alt="">
-                    <img class="banner-bottom-item-brand" src="/src/pages/home/span.png" alt="">
-                    <span class="banner-bottom-item-span">98</span>
-                </li>
-                <li class="banner-bottom-item">
-                    <img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg" alt="">
-                    <img class="banner-bottom-item-brand" src="/src/pages/home/span.png" alt="">
-                    <span class="banner-bottom-item-span">98</span>
-                </li>
-            </ul>
-        </vBanner>
-        <vBanner class="banner">
-            <div class="banner-top" slot="top">
-                <img src="/src/pages/home/recommend-head.jpg" alt="">
-            </div>
-            <ul class="banner-bottom" slot="bottom">
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-                <li class="banner-bottom-item"><img class="banner-bottom-item-pic" src="/src/pages/home/recommend.jpg"
-                                                    alt=""></li>
-            </ul>
-        </vBanner>
+        <vBanner class="banner" v-for="(listItem,i) in list" :key="i">
 
+            <div class="banner-top" slot="top">
+                <img :src=listItem[0].url alt="">
+            </div>
+            <ul class="banner-bottom" slot="bottom">
+                <li class="banner-bottom-item" v-for="j in listItem.length-1">
+                    <img class="banner-bottom-item-pic" :src="listItem[j].url" alt="">
+                    <img v-if="listItem[j].midUrl" class="banner-bottom-item-brand" :src="listItem[j].midUrl" alt="">
+                    <span class="banner-bottom-item-span" v-if="listItem[j].price">¥{{listItem[j].price}}</span>
+                </li>
+
+            </ul>
+        </vBanner>
     </div>
 </template>
 
@@ -64,6 +24,21 @@
         name: "homeRecommend",
         components: {
             vBanner
+        },
+        data: () => {
+            return {list: []}
+        },
+        methods: {
+            getRecommend: function (id) {
+                this.$http.get('http://localhost:3000/getRecommend?name=home&id=' + id).then((res) => {
+                    this.list.push(res.body);
+                })
+            }
+        },
+        created() {
+            for (let i = 1; i <= 3; i++) {
+                this.getRecommend(i);
+            }
         }
     }
 </script>
@@ -81,6 +56,7 @@
 
         &-bottom {
             display: flex;
+            width: 90%;
 
             &-item {
                 flex: 1;

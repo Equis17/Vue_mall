@@ -2,44 +2,18 @@
     <div>
         <vNavBar class="section-part">
             <ul slot="center" class="section-part-center">
-                <li>
+                <li v-for="(item,i) in list1" :key="i">
                     <div class="section-part-center-background"></div>
-                    <img src="/src/pages/home/section.png" alt="">
+                    <img :src="item.url" alt="">
                 </li>
-                <li>
-                    <div class="section-part-center-background"></div>
-                    <img src="/src/pages/home/section.png" alt="">
-                </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li>
             </ul>
         </vNavBar>
         <vNavBar class="section-part">
             <ul slot="center" class="section-part-center">
-                <li>
+                <li v-for="(item,i) in list2" :key="i">
                     <div class="section-part-center-background"></div>
-                    <img src="/src/pages/home/section.png" alt="">
+                    <img :src="item.url" alt="">
                 </li>
-                <li>
-                    <div class="section-part-center-background"></div>
-                    <img src="/src/pages/home/section.png" alt="">
-                </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li><li>
-                <div class="section-part-center-background"></div>
-                <img src="/src/pages/home/section.png" alt="">
-            </li>
             </ul>
         </vNavBar>
     </div>
@@ -52,6 +26,23 @@
         name: "homeSection",
         components: {
             vNavBar: vNavBar
+        },
+        data: () => {
+            return {
+                list1: [],
+                list2: []
+            }
+        },
+        methods: {
+            getSection: function () {
+                this.$http.get('http://localhost:3000/getSection?name=home').then((res) => {
+                    this.list1 = res.body;
+                    this.list2 = this.list1.splice(res.body.length / 2, res.body.length);
+                })
+            }
+        },
+        created() {
+            this.getSection()
         }
     }
 </script>
@@ -68,6 +59,7 @@
                 flex: 1;
                 position: relative;
                 text-align: center;
+
                 img {
                     position: inherit;
                     left: 0;
@@ -79,7 +71,7 @@
             &-background {
                 position: absolute;
                 left: 50%;
-                top: 45%;
+                top: 40%;
                 transform: translate(-50%, -50%);
                 width: 68%;
                 height: 61%;
