@@ -7,7 +7,8 @@ Vue.use(VueResource);
 
 //导入路由
 import router from './router.js'
-
+//导入scss样式文件
+import '../src/assets/scss/_index.scss'
 //初始化渲染App
 import App from './app.vue'
 new Vue({

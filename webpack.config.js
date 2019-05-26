@@ -22,7 +22,7 @@ module.exports = {
             {test: /\.sass$/, use: ['style-loader', 'css-loader', 'sass-loader']},
             {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
             {test: /\.(png|jpg|bmp|gif)$/, use: 'url-loader'},
-            {test: /\.(ttf|eot|svg|woff|woff2)$/, use: ['url-loader']},
+            {test: /\.(ttf|eot|svg|woff|woff2)$/, loader: 'url-loader?name=fonts/[name].[md5:hash:hex:7].[ext]'},
             {test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/},
             {test: /\.vue$/, use: ['vue-loader']}
         ]

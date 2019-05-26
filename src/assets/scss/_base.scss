@@ -1,0 +1,26 @@
+@import "mixins";
+
+body, button, input, select, textarea {
+  color: $icon-color;
+  font-size: $font-size-base;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+  line-height: 1;
+}
+
+body {
+  background-color: $bgc-color;
+}
+
+a {
+  color: $icon-color;
+
+  &:active {
+    color: $link-active;
+  }
+}
+
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}

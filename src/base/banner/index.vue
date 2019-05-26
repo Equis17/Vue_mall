@@ -1,13 +1,13 @@
 <template>
-    <router-view></router-view>
+
 </template>
 
 <script>
     export default {
-        name: "app",
+        name: "index"
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
