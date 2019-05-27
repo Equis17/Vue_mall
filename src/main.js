@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+
 //导入路由
 import router from './router.js'
 //导入scss样式文件

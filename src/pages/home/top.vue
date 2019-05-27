@@ -12,7 +12,7 @@
                 <li v-for="(item,index) in midList"
                     :key=index>
                     <router-link
-                            :to=item
+                            :to=item.to
                             :class="{'mid-bar-center-li-active':item.isActive}">
                         {{item.title}}
                     </router-link>
@@ -31,13 +31,12 @@
         data: () => {
             return {
                 midList: [
-                    {to: 'home/1', title: '今日推荐', isActive: true},
-                    {to: 'home/2', title: '最后疯抢', isActive: false},
-                    {to: 'home/3', title: '美妆', isActive: false},
-                    {to: 'home/4', title: '母婴', isActive: false},
-                    {to: 'home/5', title: '国际', isActive: false},
-                    {to: 'home/6', title: '家电', isActive: false},
-
+                    {to: '/home', title: '今日推荐', isActive: true},
+                    {to: '/hot', title: '最后疯抢', isActive: false},
+                    {to: '/makeup', title: '美妆', isActive: false},
+                    {to: '/maternalProducts', title: '母婴', isActive: false},
+                    {to: '/international', title: '国际', isActive: false},
+                    {to: '/household', title: '家电', isActive: false},
                 ]
             }
         },
@@ -95,15 +94,16 @@
                 }
             }
 
-            &-li-active {
-                color: $link-active;
-                border-bottom: 3px solid $link-active;
 
-            }
         }
 
         &-right {
             font-size: $icon-font-size-l;
+        }
+        .router-link-active {
+            color: $link-active;
+            border-bottom: 3px solid $link-active;
+
         }
     }
 </style>

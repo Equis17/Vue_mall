@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="100">
         <h1 class="title">今日特卖•10点上新</h1>
         <vBanner class="hot" v-for="(item,i) in list" :key="i">
             <div class="hot-top" slot="top">
@@ -12,11 +12,13 @@
                 <span class="hot-bottom-label">{{item.span}}</span>
             </div>
         </vBanner>
+        <h1 class="title" v-show="busy">正在加载请等待</h1>
     </div>
 </template>
 
 <script>
     import vBanner from '../../base/banner/index.vue'
+    import infiniteScroll from 'vue-infinite-scroll'
 
     export default {
         name: "hot",
@@ -24,16 +26,40 @@
             vBanner
         },
         data: () => {
-            return {list: []}
+            return {
+                list: [],
+                busy: false
+            }
         },
         methods: {
             getHot: function () {
-                this.$http.get('http://localhost:3000/getHot').then((res)=>{this.list=res.body})
+                this.$http.get('http://localhost:3000/getHot').then((res) => {
+                    Array.prototype.push.apply(this.list, res.body);
+                    console.log(this.list)
+                })
+            },
+            getTest: function () {
+                this.list.push({
+                    url: '/src/pages/home/15452109808538.jpg',
+                    discount: 1,
+                    interval: 1,
+                    title: 'asdsad',
+                    span: '123'
+                })
+            }
+            ,
+            loadMore: function () {
+                this.busy = true;
+                setTimeout(() => {
+                    this.getTest();
+                    this.busy = false;
+                }, 1000)
             }
         },
         created() {
-            this.getHot();
-        }
+            this.getTest();
+        },
+        directives: {infiniteScroll}
     }
 </script>
 
@@ -92,6 +118,7 @@
                 line-height: 30px;
                 font-size: $font-size-l;
                 color: $link-active;
+
                 &:after {
                     content: '|';
                     padding-left: 20px;
