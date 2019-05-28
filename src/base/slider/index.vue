@@ -1,5 +1,6 @@
 <template>
     <swiper :options="swiperOption" :key="KeyId">
+        <slot></slot>
         <div class="swiper-pagination" v-if="pagination" slot="pagination"></div>
     </swiper>
 </template>
@@ -32,8 +33,8 @@
             interval: {
                 type: Number,
                 default: 3000,
-                validator(value) {
-                    return value >= 0;
+                validator(val) {
+                    return val >= 0;
                 }
             },
             loop: {
@@ -83,4 +84,8 @@
     }
 </script>
 <style scoped>
+    .swiper-container{
+        width: 100%;
+        height: 100%;
+    }
 </style>

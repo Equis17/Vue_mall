@@ -12,7 +12,8 @@
                 <span class="hot-bottom-label">{{item.span}}</span>
             </div>
         </vBanner>
-        <h1 class="title" v-show="busy">正在加载请等待</h1>
+        <h1 class="title" v-show="busy&&times!==4">正在加载请等待</h1>
+        <h1 class="title" v-if="done">已加载完毕</h1>
     </div>
 </template>
 
@@ -28,7 +29,9 @@
         data: () => {
             return {
                 list: [],
-                busy: false
+                busy: false,
+                done: false,
+                times: 0
             }
         },
         methods: {
@@ -45,21 +48,32 @@
                     interval: 1,
                     title: 'asdsad',
                     span: '123'
-                })
+                });
             }
             ,
             loadMore: function () {
                 this.busy = true;
-                setTimeout(() => {
-                    this.getTest();
-                    this.busy = false;
-                }, 1000)
+                this.times++;
+                if (this.times > 3) {
+                    this.done = true;
+                    return false;
+                } else {
+                    setTimeout(() => {
+                        this.getTest();
+                        this.busy = false;
+                    }, 1300);
+                }
+
             }
-        },
+        }
+        ,
         created() {
             this.getTest();
-        },
-        directives: {infiniteScroll}
+        }
+        ,
+        directives: {
+            infiniteScroll
+        }
     }
 </script>
 
@@ -76,6 +90,10 @@
     .hot {
         background-color: $bgc-theme;
         margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
 
         &-top {
             margin: 0 auto;
@@ -97,7 +115,6 @@
             border: 1px solid $border-color;
             border-top: 0;
             width: 90%;
-            height: 70px;
             background-color: #fff;
 
             &-title {

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
@@ -10,6 +9,7 @@ Vue.use(VueResource);
 import router from './router.js'
 //导入scss样式文件
 import '../src/assets/scss/_index.scss'
+import 'swiper/dist/css/swiper.css';
 //初始化渲染App
 import App from './app.vue'
 
