@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import vNavBar from '../../base/navbar/index.vue'
+    import vNavBar from '../base/navbar/index.vue'
 
     export default {
         name: "homeTop",
@@ -47,7 +47,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import "../../assets/scss/mixins";
+    @import "../assets/scss/mixins";
 
     .bar {
         height: $navbar-height;

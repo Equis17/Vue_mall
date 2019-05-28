@@ -1,6 +1,6 @@
 <template>
     <div>
-        <homeTop class="top"></homeTop>
+        <cTop class="top"></cTop>
         <homeBanner class="banner"></homeBanner>
         <homeSection class="sections"></homeSection>
         <homeRecommend class="recommend"></homeRecommend>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import homeTop from './top.vue'
+    import cTop from '../../components/top.vue'
     import homeBanner from './banner.vue'
     import homeSection from './section.vue'
     import homeRecommend from './recommend.vue'
@@ -18,7 +18,7 @@
     export default {
         name: "index",
         components: {
-            homeTop,
+            cTop,
             homeBanner,
             homeSection,
             homeRecommend,
