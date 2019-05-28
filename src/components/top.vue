@@ -1,12 +1,18 @@
 <template>
     <div>
         <vNavBar class="bar">
-            <router-link to="home/login" slot="left" class="bar-left">登录</router-link>
+            <i v-if="isSearching" class="bar-left-icon iconfont icon-xialajiantou" slot="left" ></i>
+            <router-link v-else to="home/login" slot="left" class="bar-left">登录</router-link>
             <div class="bar-center" slot="center">
-                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群">
+                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群" @focus="showSearchWrap">
             </div>
-            <i class="bar-right iconfont icon-icon_work" slot="right"></i>
+            <i class="bar-right iconfont icon-icon_work" slot="right"><a href="#"></a></i>
         </vNavBar>
+        <div class="bar-wrap" v-show="isSearching" >
+            <router-link  to="home/login" slot="left" class="bar-left">登录</router-link>
+
+        </div>
+
         <vNavBar class="mid-bar">
             <ul class="mid-bar-center" slot="center">
                 <li v-for="(item,index) in midList"
@@ -18,7 +24,8 @@
                     </router-link>
                 </li>
             </ul>
-            <i class="mid-bar-right iconfont icon-xialajiantou" slot="right" ref="arrow" @click="showDropDown"></i>
+            <i class="mid-bar-right iconfont icon-xialajiantou" slot="right" ref="dropDownArrow"
+               @click="showDropDown"></i>
         </vNavBar>
         <div class="mid-bar-wrap" v-show="isDropDown">
             <span class="mid-bar-wrap-title">热门推荐</span>
@@ -82,14 +89,18 @@
                 ]
             }
         },
-        props: ['isDropDown']
+        props: ['isDropDown', 'isSearching']
         ,
         components: {
             vNavBar: vNavBar
         },
         methods: {
             showDropDown: function () {
+                this.isDropDown ? this.$refs.dropDownArrow.style.transform = 'rotateZ(180deg)' : this.$refs.dropDownArrow.style.transform = 'rotateZ(0)';
                 this.$emit('showDropDown');
+            },
+            showSearchWrap: function () {
+                this.$emit('showSearchWrap');
             }
         }
     }
@@ -104,6 +115,11 @@
 
         &-left {
             font-size: $font-size-l;
+            transform: rotateY(90deg);
+            &-icon{
+                display: inline-block;
+
+            }
         }
 
         &-center {
@@ -123,6 +139,12 @@
 
         &-right {
             font-size: $icon-font-size-l;
+        }
+
+        &-wrap {
+            width: 100%;
+            height: 1500px;
+            background-color: #fff;
         }
     }
 
@@ -148,6 +170,8 @@
         }
 
         &-right {
+            display: inline-block;
+            transition: .5s all;
             font-size: $icon-font-size-l;
         }
 
@@ -217,4 +241,5 @@
             }
         }
     }
+
 </style>

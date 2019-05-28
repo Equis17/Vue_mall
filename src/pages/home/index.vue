@@ -1,6 +1,6 @@
 <template>
     <div>
-        <cTop class="top" :isDropDown="dropDownFlag" @showDropDown="showDropDown"></cTop>
+        <cTop class="top" :isDropDown="dropDownFlag" :isSearching="searching" @showDropDown="showDropDown" @showSearchWrap="showSearchWrap"></cTop>
         <homeBanner class="banner" v-show="!dropDownFlag"></homeBanner>
         <homeSection class="sections" v-show="!dropDownFlag"></homeSection>
         <homeRecommend class="recommend" v-show="!dropDownFlag"></homeRecommend>
@@ -26,12 +26,16 @@
         },
         data:function () {
             return{
-                dropDownFlag:false
+                dropDownFlag:false,
+                searching:false
             }
         },
         methods:{
             showDropDown:function () {
                 this.dropDownFlag=!this.dropDownFlag;
+            },
+            showSearchWrap:function () {
+                this.searching=!this.searching;
             }
         }
     }
