@@ -38,7 +38,6 @@
             getHot: function () {
                 this.$http.get('http://localhost:3000/getHot').then((res) => {
                     Array.prototype.push.apply(this.list, res.body);
-                    console.log(this.list)
                 })
             },
             getTest: function () {
@@ -59,16 +58,16 @@
                     return false;
                 } else {
                     setTimeout(() => {
-                        this.getTest();
+                        this.getHot();
                         this.busy = false;
-                    }, 1300);
+                    }, 4000);
                 }
 
             }
         }
         ,
         created() {
-            this.getTest();
+            this.getHot();
         }
         ,
         directives: {

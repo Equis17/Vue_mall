@@ -1,10 +1,10 @@
 <template>
     <div>
-        <cTop class="top"></cTop>
-        <homeBanner class="banner"></homeBanner>
-        <homeSection class="sections"></homeSection>
-        <homeRecommend class="recommend"></homeRecommend>
-        <homeHot class="hot"></homeHot>
+        <cTop class="top" :isDropDown="dropDownFlag" @showDropDown="showDropDown"></cTop>
+        <homeBanner class="banner" v-show="!dropDownFlag"></homeBanner>
+        <homeSection class="sections" v-show="!dropDownFlag"></homeSection>
+        <homeRecommend class="recommend" v-show="!dropDownFlag"></homeRecommend>
+        <homeHot class="hot" v-show="!dropDownFlag" ></homeHot>
     </div>
 </template>
 
@@ -23,6 +23,16 @@
             homeSection,
             homeRecommend,
             homeHot
+        },
+        data:function () {
+            return{
+                dropDownFlag:false
+            }
+        },
+        methods:{
+            showDropDown:function () {
+                this.dropDownFlag=!this.dropDownFlag;
+            }
         }
     }
 </script>

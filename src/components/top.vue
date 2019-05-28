@@ -18,8 +18,39 @@
                     </router-link>
                 </li>
             </ul>
-            <i class="mid-bar-right iconfont icon-xialajiantou" slot="right"></i>
+            <i class="mid-bar-right iconfont icon-xialajiantou" slot="right" ref="arrow" @click="showDropDown"></i>
         </vNavBar>
+        <div class="mid-bar-wrap" v-show="isDropDown">
+            <span class="mid-bar-wrap-title">热门推荐</span>
+            <ul class="mid-bar-wrap-recommend">
+                <li v-for="(item,i) in wrapList" :key="i"><a href="#"><i :class="item.className"></i><span>{{item.title}}</span></a>
+                </li>
+                <div style="clear: both;"></div>
+            </ul>
+            <span class="mid-bar-wrap-title">更多推荐</span>
+            <ul class="mid-bar-wrap-more">
+                <li><a href="#">女装</a></li>
+                <li><a href="#">男装</a></li>
+                <li><a href="#">鞋包</a></li>
+                <li><a href="#">童装童鞋</a></li>
+                <li><a href="#">面部护肤</a></li>
+                <li><a href="#">手表配饰</a></li>
+                <li><a href="#">内衣</a></li>
+                <li><a href="#">运动户外</a></li>
+                <li><a href="#">护肤彩妆</a></li>
+                <li><a href="#">手机数码</a></li>
+                <li><a href="#">轻奢</a></li>
+                <li><a href="#">旗舰店</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#">母婴</a></li>
+                <li><a href="#">家居家纺</a></li>
+                <li><a href="#">大家电</a></li>
+                <li><a href="#">家居家装</a></li>
+                <li><a href="#">生活超市</a></li>
+                <li><a href="#">医药健康</a></li>
+
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -37,14 +68,33 @@
                     {to: '/maternalProducts', title: '母婴', isActive: false},
                     {to: '/international', title: '国际', isActive: false},
                     {to: '/household', title: '家电', isActive: false},
+                ],
+                wrapList: [
+                    {className: 'iconfont icon-shopping-bag', title: '今日推荐'},
+                    {className: 'iconfont icon-coupon-dash', title: '最后疯抢'},
+                    {className: 'iconfont icon-meizhuang', title: '美妆'},
+                    {className: 'iconfont icon-muying', title: '母婴'},
+                    {className: 'iconfont icon-guoji', title: '国际'},
+                    {className: 'iconfont icon-icon--', title: '家电'},
+                    {className: 'iconfont icon-chuang', title: '家居'},
+                    {className: 'iconfont icon-kafei', title: '生活'},
+                    {className: 'iconfont icon-zuanshi', title: '唯品'}
                 ]
             }
         },
+        props: ['isDropDown']
+        ,
         components: {
-            vNavBar:vNavBar
+            vNavBar: vNavBar
+        },
+        methods: {
+            showDropDown: function () {
+                this.$emit('showDropDown');
+            }
         }
     }
 </script>
+
 
 <style lang="scss" scoped>
     @import "../assets/scss/mixins";
@@ -100,10 +150,71 @@
         &-right {
             font-size: $icon-font-size-l;
         }
+
         .router-link-active {
             color: $link-active;
             border-bottom: 3px solid $link-active;
 
+        }
+
+        &-wrap {
+            width: 100%;
+            height: 1600px;
+            background-color: #fff;
+
+            &-title {
+                font-size: $font-size-base;
+                line-height: 25px;
+                padding-left: 15px;
+            }
+
+            &-recommend {
+                width: 100%;
+                text-align: center;
+
+                li {
+                    float: left;
+                    width: 25%;
+                    padding: 10px;
+                    border-right: 1px solid $border-color;
+                    border-bottom: 1px solid $border-color;
+
+                    &:nth-child(4n) {
+                        border-right: 0;
+                    }
+
+                    i {
+                        font-size: $icon-font-size-base+5px;
+                    }
+
+                    span {
+                        display: block;
+                        line-height: 30px;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &-more {
+                text-align: center;
+                width: 95%;
+                margin: 0 auto;
+
+                li {
+                    float: left;
+                    margin-right: 5px;
+                    margin-bottom: 15px;
+
+                    width: 23%;
+                    border-radius: 15px;
+                    line-height: 25px;
+                    background-color: $bgc-theme;
+
+                    &:nth-child(4n) {
+                        margin-right: 0;
+                    }
+                }
+            }
         }
     }
 </style>

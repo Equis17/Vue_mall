@@ -13,7 +13,7 @@
                     <img :src=item.picUrl alt="" class="slider-img">
                 </a>
             </swiper-slide>
-            <div></div>
+            <div ></div>
         </vSlider>
 
     </div>
@@ -33,13 +33,11 @@
             return {
                 direction: 'horizontal',
                 loop: true,
-                interval: 4000,
-                pagination: false,
+                interval: 2000,
+                pagination: true,
                 sliders: [
-                    {linkUrl: '', picUrl: 'src/pages/home/15452109808538.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/home/19.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/home/20.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/home/21.jpg'}
+                    {linkUrl: '', picUrl: 'src/pages/makeup/banner.jpg'},
+                    {linkUrl: '', picUrl: 'src/pages/makeup/banner2.jpg'},
                 ]
             };
         },
@@ -49,7 +47,7 @@
         methods: {
             getSliders() {
                 // this.$http.get('http://localhost:3000/get')
-                Array.prototype.push.apply(this.sliders,[{linkUrl: '', picUrl: 'src/pages/home/19.jpg'}]);
+                Array.prototype.push.apply(this.sliders, [{linkUrl: '', picUrl: 'src/pages/home/19.jpg'}]);
                 console.log(this.sliders)
             }
         }
@@ -69,6 +67,6 @@
     .slider-link,
     .slider-img {
         width: 100%;
-        height: 100%;
+        height: 150px;
     }
 </style>
