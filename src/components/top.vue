@@ -1,16 +1,42 @@
 <template>
     <div>
         <vNavBar class="bar">
-            <i v-if="isSearching" class="bar-left-icon iconfont icon-xialajiantou" slot="left" ></i>
+            <i v-if="isSearching" class="bar-left-icon iconfont icon-xialajiantou" slot="left"
+               @click="hideSearchWrap"></i>
             <router-link v-else to="home/login" slot="left" class="bar-left">登录</router-link>
             <div class="bar-center" slot="center">
-                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群" @focus="showSearchWrap">
+                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群" @click="showSearchWrap">
             </div>
             <i class="bar-right iconfont icon-icon_work" slot="right"><a href="#"></a></i>
         </vNavBar>
-        <div class="bar-wrap" v-show="isSearching" >
-            <router-link  to="home/login" slot="left" class="bar-left">登录</router-link>
-
+        <div class="bar-wrap" v-show="isSearching" @click.prevent>
+            <div class="bar-wrap-history">
+                <div class="bar-wrap-history-title">
+                    <span>最近搜索</span>
+                    <a href="#" @click.default>清空</a>
+                    <div style="clear: both"></div>
+                </div>
+                <ul>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <div style="clear: both;"></div>
+                </ul>
+            </div>
+            <div class="bar-wrap-hot">
+                <div class="bar-wrap-hot-title">
+                    <span>热门搜索</span>
+                    <div style="clear: both"></div>
+                </div>
+                <ul>
+                    <li class="bar-wrap-hot-item" v-for="(name,i) in searchHotList" :key="i"><a href="#">{{name}}</a>
+                    </li>
+                    <div style="clear: both;"></div>
+                </ul>
+            </div>
         </div>
 
         <vNavBar class="mid-bar">
@@ -86,7 +112,9 @@
                     {className: 'iconfont icon-chuang', title: '家居'},
                     {className: 'iconfont icon-kafei', title: '生活'},
                     {className: 'iconfont icon-zuanshi', title: '唯品'}
-                ]
+                ],
+                searchHistoryList: [],
+                searchHotList: ['口碑爆款', '面膜', '韩衣都舍t恤女', '防晒', '护肤套装', '连衣裙', '女士t恤', '女凉鞋', '女式衬衫', '女式套装', '蜜丝佛陀 MAX FACTOR', '华为/HUAWEI', '联想/LENOVO', 'XQ', '小猪佩奇/PEPPA PIG']
             }
         },
         props: ['isDropDown', 'isSearching']
@@ -101,6 +129,9 @@
             },
             showSearchWrap: function () {
                 this.$emit('showSearchWrap');
+            },
+            hideSearchWrap: function () {
+                this.$emit('hideSearchWrap');
             }
         }
     }
@@ -115,9 +146,11 @@
 
         &-left {
             font-size: $font-size-l;
-            transform: rotateY(90deg);
-            &-icon{
+
+            &-icon {
+                font-size: $icon-font-size-l;
                 display: inline-block;
+                transform: rotateZ(90deg);
 
             }
         }
@@ -145,6 +178,46 @@
             width: 100%;
             height: 1500px;
             background-color: #fff;
+
+            &-history, &-hot {
+                margin: 15px 15px 0 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $border-color;
+
+                &-title {
+                    span {
+                        float: left;
+                        line-height: 20px;
+                        font-size: $font-size-l;
+                    }
+
+                    a {
+                        float: right;
+                        line-height: 20px;
+                        font-size: $font-size-l;
+                    }
+                }
+
+
+                &-item {
+                    float: left;
+                    margin: 10px 0;
+
+                    a {
+                        display: inline-block;
+
+                        padding: 0 15px;
+                        margin-right: 15px;
+
+                        line-height: 30px;
+                        font-size: $font-size-l;
+                        color: #5D78AB;
+
+                        border: 1px solid $border-color;
+                        border-radius: 5px;
+                    }
+                }
+            }
         }
     }
 
@@ -241,5 +314,4 @@
             }
         }
     }
-
 </style>

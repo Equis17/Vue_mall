@@ -1,6 +1,6 @@
 <template>
     <div>
-        <cTop class="top" :isDropDown="dropDownFlag" :isSearching="searching" @showDropDown="showDropDown" @showSearchWrap="showSearchWrap"></cTop>
+        <cTop class="top" :isDropDown="dropDownFlag" :isSearching="searching" @showDropDown="showDropDown" @showSearchWrap="showSearchWrap" @hideSearchWrap="hideSearchWrap"></cTop>
         <homeBanner class="banner" v-show="!dropDownFlag"></homeBanner>
         <homeSection class="sections" v-show="!dropDownFlag"></homeSection>
         <homeRecommend class="recommend" v-show="!dropDownFlag"></homeRecommend>
@@ -35,7 +35,10 @@
                 this.dropDownFlag=!this.dropDownFlag;
             },
             showSearchWrap:function () {
-                this.searching=!this.searching;
+                this.searching=true;
+            },
+            hideSearchWrap:function () {
+                this.searching=false;
             }
         }
     }
@@ -47,6 +50,7 @@
     .top {
         position: fixed;
         width: 100%;
+        z-index: $navbar-z-index;
     }
 
     .banner {
