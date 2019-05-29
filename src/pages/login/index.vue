@@ -1,7 +1,7 @@
 <template>
     <div class="login" @touchmove.prevent>
         <div class="logo-box">
-            <img src="logo.png" alt="">
+            <img src="./logo.png" alt="">
             <router-link to="/home">X</router-link>
         </div>
         <form class="form">
@@ -11,7 +11,7 @@
             </div>
             <div class="form-password">
                 <span class="form-password-title">验证码</span>
-                <input class="form-password-input" type="text" placeholder="请输入手机号码">
+                <input class="form-password-input" type="text" placeholder="请输入验证码">
                 <a class="form-password-validate" href="#" @click.prevent>获取验证码</a>
             </div>
             <div class="form-submit">
@@ -101,8 +101,11 @@
             &-input {
                 line-height: 50px;
                 font-size: $font-size-l;
-                outline: none;
                 flex: 5;
+
+                &::placeholder {
+                    color: #aaa;
+                }
             }
 
             &-validate {

@@ -1,5 +1,5 @@
 <template>
-    <swiper :options="swiperOption" :key="KeyId">
+    <swiper :options="swiperOption" :key="KeyId" class="slider">
         <slot></slot>
         <div class="swiper-pagination" v-if="pagination" slot="pagination"></div>
     </swiper>
@@ -87,5 +87,8 @@
     .swiper-container{
         width: 100%;
         height: 100%;
+    }
+    .slider{
+        background-color: #fff;
     }
 </style>

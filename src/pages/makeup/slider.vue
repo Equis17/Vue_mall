@@ -13,7 +13,7 @@
                     <img :src=item.picUrl alt="" class="slider-img">
                 </a>
             </swiper-slide>
-            <div ></div>
+            <div></div>
         </vSlider>
 
     </div>
@@ -39,7 +39,7 @@
                     {linkUrl: '', picUrl: 'src/pages/makeup/banner.jpg'},
                     {linkUrl: '', picUrl: 'src/pages/makeup/banner2.jpg'},
                 ]
-            };
+            }
         },
         created() {
             this.getSliders();
@@ -56,9 +56,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .slider-wrapper {
-        height: 183px;
-    }
 
     .slider-link {
         display: block;
@@ -67,6 +64,6 @@
     .slider-link,
     .slider-img {
         width: 100%;
-        height: 150px;
+        height: 183px;
     }
 </style>
