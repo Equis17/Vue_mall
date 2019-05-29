@@ -4,7 +4,6 @@
         <hotBanner class="banner"></hotBanner>
         <hotSection class="section"></hotSection>
         <hotRecommend class="recommend"></hotRecommend>
-
     </div>
 
 </template>
@@ -37,7 +36,7 @@
         width: 100%;
     }
 
-    .banner{
+    .banner {
         padding-top: 88px;
     }
 </style>

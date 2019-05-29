@@ -1,9 +1,10 @@
 <template>
-    <div>
+    <div class="home">
         <homeBanner class="banner"></homeBanner>
         <homeSection class="sections"></homeSection>
         <homeRecommend class="recommend"></homeRecommend>
         <homeHot class="hot"></homeHot>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -27,6 +28,11 @@
 <style lang="scss" scoped>
     @import "../../assets/scss/mixins";
 
+    .home{
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
     .top {
         position: fixed;
         width: 100%;

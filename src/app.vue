@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div id="app" >
         <cTop class="top" :isDropDown="dropDownFlag" :isSearching="searching" @showDropDown="showDropDown"
               @showSearchWrap="showSearchWrap" @hideSearchWrap="hideSearchWrap"></cTop>
-        <router-view></router-view>
+            <router-view></router-view>
     </div>
 </template>
 

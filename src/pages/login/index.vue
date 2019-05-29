@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="login" @touchmove.prevent>
         <div class="logo-box">
-            <img src="./logo.png" alt="">
+            <img src="logo.png" alt="">
             <router-link to="/home">X</router-link>
         </div>
         <form class="form">
@@ -29,12 +29,17 @@
 
 <script>
     export default {
-        name: "homeLogin"
+        name: "homeLogin",
+        methods:{
+            c:function () {
+                console.log(this)
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
-    @import "../../../assets/scss/mixins";
+    @import "../../assets/scss/mixins";
 
     .logo-box {
         width: 100%;
@@ -141,5 +146,16 @@
                 }
             }
         }
+    }
+
+    .login{
+        overflow: hidden;
+        position:fixed;
+        top: 0;
+        left: 0;
+        z-index: $backtop-z-index;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
     }
 </style>

@@ -1,13 +1,18 @@
 <template>
-    <div>
+    <div @touchmove.prevent>
+
         <vNavBar class="bar">
             <i v-if="isSearching" class="bar-left-icon iconfont icon-xialajiantou" slot="left"
                @click="hideSearchWrap"></i>
-            <router-link v-else to="home/login" slot="left" class="bar-left">登录</router-link>
+            <router-link v-else :to="{name:'home-login'}" slot="left" class="bar-left">登录</router-link>
             <div class="bar-center" slot="center">
-                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群" @click="showSearchWrap">
+                <input class="bar-center-input" type="text" placeholder="大家正在搜素:连衣群" @click="showSearchWrap"
+                       v-model="searchWords">
             </div>
-            <i class="bar-right iconfont icon-icon_work" slot="right"><a href="#"></a></i>
+            <router-link v-if="isSearching" class="bar-right-search" :to="'/search/'+searchWords" slot="right"
+                         @click.native="hideSearchWrap">搜索
+            </router-link>
+            <i v-else class="bar-right iconfont icon-icon_work" slot="right"><a href="#"></a></i>
         </vNavBar>
         <div class="bar-wrap" v-show="isSearching" @click.prevent>
             <div class="bar-wrap-history">
@@ -38,6 +43,7 @@
                 </ul>
             </div>
         </div>
+
 
         <vNavBar class="mid-bar">
             <ul class="mid-bar-center" slot="center">
@@ -84,6 +90,8 @@
 
             </ul>
         </div>
+
+
     </div>
 </template>
 
@@ -114,7 +122,8 @@
                     {className: 'iconfont icon-zuanshi', title: '唯品'}
                 ],
                 searchHistoryList: [],
-                searchHotList: ['口碑爆款', '面膜', '韩衣都舍t恤女', '防晒', '护肤套装', '连衣裙', '女士t恤', '女凉鞋', '女式衬衫', '女式套装', '蜜丝佛陀 MAX FACTOR', '华为/HUAWEI', '联想/LENOVO', 'XQ', '小猪佩奇/PEPPA PIG']
+                searchHotList: ['口碑爆款', '面膜', '韩衣都舍t恤女', '防晒', '护肤套装', '连衣裙', '女士t恤', '女凉鞋', '女式衬衫', '女式套装', '蜜丝佛陀 MAX FACTOR', '华为/HUAWEI', '联想/LENOVO', 'XQ', '小猪佩奇/PEPPA PIG'],
+                searchWords: '连衣裙'
             }
         },
         props: ['isDropDown', 'isSearching']
@@ -172,6 +181,10 @@
 
         &-right {
             font-size: $icon-font-size-l;
+
+            &-search {
+                font-size: $font-size-l+2;
+            }
         }
 
         &-wrap {
@@ -180,8 +193,7 @@
             background-color: #fff;
 
             &-history, &-hot {
-                margin: 15px 15px 0 15px;
-                padding-bottom: 15px;
+                padding: 15px 15px 15px 15px;
                 border-bottom: 1px solid $border-color;
 
                 &-title {
