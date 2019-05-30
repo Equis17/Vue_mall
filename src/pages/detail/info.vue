@@ -182,16 +182,16 @@
         data: function () {
 
             return {
-                imgUrl: ['/src/pages/detail/img1.jpg',
-                    '/src/pages/detail/img2.jpg',
-                    '/src/pages/detail/img3.jpg',
-                    '/src/pages/detail/img4.jpg',
-                    '/src/pages/detail/img5.jpg',
-                    '/src/pages/detail/img6.jpg',
-                    '/src/pages/detail/img7.jpg',
-                    '/src/pages/detail/img8.jpg',
-                    '/src/pages/detail/img9.jpg',
-                    '/src/pages/detail/img10.jpg',
+                imgUrl: ['../src/pages/detail/img1.jpg',
+                    '../src/pages/detail/img2.jpg',
+                    '../src/pages/detail/img3.jpg',
+                    '../src/pages/detail/img4.jpg',
+                    '../src/pages/detail/img5.jpg',
+                    '../src/pages/detail/img6.jpg',
+                    '../src/pages/detail/img7.jpg',
+                    '../src/pages/detail/img8.jpg',
+                    '../src/pages/detail/img9.jpg',
+                    '../src/pages/detail/img10.jpg',
                 ]
             }
         }

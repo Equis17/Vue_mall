@@ -35,10 +35,10 @@
                 interval: 2000,
                 pagination: true,
                 sliders: [
-                    {linkUrl: '', picUrl: 'src/pages/detail/1.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/detail/2.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/detail/3.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/detail/4.jpg'}
+                    {linkUrl: '', picUrl: '../src/pages/detail/1.jpg'},
+                    {linkUrl: '', picUrl: '../src/pages/detail/2.jpg'},
+                    {linkUrl: '', picUrl: '../src/pages/detail/3.jpg'},
+                    {linkUrl: '', picUrl: '../src/pages/detail/4.jpg'}
                 ]
             }
         }

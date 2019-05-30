@@ -33,10 +33,10 @@
         }, methods: {
             getTest: function () {
                 this.list.push({
-                    url: '/src/pages/hot/banner.jpg',
-                    midUrl: ['/src/pages/hot/3-2.jpg',
-                        '/src/pages/hot/3-3.jpg',
-                        '/src/pages/hot/3-4.jpg'],
+                    url: '../src/pages/hot/banner.jpg',
+                    midUrl: ['../src/pages/hot/3-2.jpg',
+                        '../src/pages/hot/3-3.jpg',
+                        '../src/pages/hot/3-4.jpg'],
                     discount: 1,
                     interval: 1,
                     title: 'asdsad',
@@ -65,6 +65,7 @@
     .recommend {
         padding: 0 5%;
         background-color: $bgc-theme;
+
         &Title {
             line-height: 50px;
             height: 50px;
@@ -74,16 +75,18 @@
         }
 
         &Top {
-            img{
+            img {
                 width: 100%;
                 height: auto;
                 border-radius: 15px 15px 0 0;
             }
         }
-        &Bottom{
+
+        &Bottom {
             padding: 10px 0;
             @include flex-around;
-            img{
+
+            img {
                 width: 30%;
                 height: auto;
             }

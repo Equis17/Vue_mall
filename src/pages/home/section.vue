@@ -43,34 +43,34 @@
             getTest: function () {
                 this.list1 = [{
                     "name": "home",
-                    "url": "../../src/pages/home/1.png"
+                    "url": "../src/pages/home/1.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/2.png"
+                    "url": "../src/pages/home/2.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/5.png"
+                    "url": "../src/pages/home/5.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/4.png"
+                    "url": "../src/pages/home/4.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/6.png"
+                    "url": "../src/pages/home/6.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/7.png"
+                    "url": "../src/pages/home/7.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/3.png"
+                    "url": "../src/pages/home/3.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/8.png"
+                    "url": "../src/pages/home/8.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/9.png"
+                    "url": "../src/pages/home/9.png"
                 }, {
                     "name": "home",
-                    "url": "../../src/pages/home/10.png"
+                    "url": "../src/pages/home/10.png"
                 }];
                 this.list2 = this.list1.splice(this.list1.length / 2, this.list1.length);
 

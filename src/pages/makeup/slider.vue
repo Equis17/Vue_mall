@@ -36,8 +36,8 @@
                 interval: 2000,
                 pagination: true,
                 sliders: [
-                    {linkUrl: '', picUrl: 'src/pages/makeup/banner.jpg'},
-                    {linkUrl: '', picUrl: 'src/pages/makeup/banner2.jpg'},
+                    {linkUrl: '', picUrl: '../src/pages/makeup/banner.jpg'},
+                    {linkUrl: '', picUrl: '../src/pages/makeup/banner2.jpg'},
                 ]
             }
         },

@@ -26,7 +26,7 @@
                 })
             },
             getTest: function () {
-                this.list ={url: '../../src/pages/home/15452109808538.jpg'}
+                this.list ={url: '../src/pages/home/15452109808538.jpg'}
             }
         },
         created() {
