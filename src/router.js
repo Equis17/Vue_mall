@@ -5,6 +5,7 @@ import homeLogin from './pages/login/index.vue'
 
 import search from '../src/pages/search/index.vue'
 import detail from '../src/pages/detail/index.vue'
+import cart from  '../src/pages/cart/index.vue'
 import hot from '../src/pages/hot/index.vue'
 import makeup from '../src/pages/makeup/index.vue'
 
@@ -21,6 +22,7 @@ const router = new VueRouter({
         },
         {path: '/search/:name', component: search},
         {path:'/detail/:id',component:detail},
+        {path:'/cart',component:cart},
         {path: '/hot', component: hot},
         {path: '/makeup', component: makeup},
         {path: '/maternalProducts', component: home},

@@ -3,7 +3,7 @@
         <detailSlider></detailSlider>
         <detailInfo></detailInfo>
         <button class="detail-back" @click="back"><i class="iconfont icon-xialajiantou"></i></button>
-
+        <detailNavBottom></detailNavBottom>
     </div>
 
 </template>
@@ -11,12 +11,14 @@
 <script>
     import detailSlider from './slider.vue'
     import detailInfo from './info.vue'
+    import detailNavBottom from './navbottom.vue'
 
     export default {
         name: "index",
         components: {
             detailSlider,
-            detailInfo
+            detailInfo,
+            detailNavBottom
         },
         methods: {
             back: function () {
@@ -33,7 +35,8 @@
         z-index: $search-z-index;
         position: absolute;
         width: 100%;
-        &-back{
+
+        &-back {
             z-index: $search-z-index+100;
 
             position: absolute;
@@ -44,9 +47,10 @@
             height: 50px;
             border-radius: 50%;
 
-            background-color: rgba(0,0,0,.6);
+            background-color: rgba(0, 0, 0, .6);
             color: #fff;
-            i{
+
+            i {
                 display: inline-block;
                 transform: rotateZ(90deg);
                 font-size: $icon-font-size-l;

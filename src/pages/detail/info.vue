@@ -202,7 +202,6 @@
     @import "../../assets/scss/mixins";
 
     .info {
-        padding-bottom: 80px;
         padding-left: 15px;
         padding-right: 15px;
         background-color: #fff;
