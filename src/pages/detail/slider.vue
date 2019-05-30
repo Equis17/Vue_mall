@@ -41,6 +41,8 @@
                     {linkUrl: '', picUrl: '../src/pages/detail/4.jpg'}
                 ]
             }
+        },created() {
+            this.$emit('pushImg',this.sliders[0].picUrl)
         }
     }
 </script>
