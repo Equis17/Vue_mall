@@ -1,7 +1,7 @@
 <template>
     <div class="detail">
         <detailSlider @pushImg="getImg"></detailSlider>
-        <detailInfo></detailInfo>
+        <detailInfo @pushInfo="getInfo"></detailInfo>
         <button class="detail-back" @click="back"><i class="iconfont icon-xialajiantou"></i></button>
         <detailNavBottom @addCart="addCart"></detailNavBottom>
 
@@ -33,6 +33,10 @@
         data: function () {
             return {
                 firstImg: '',
+                price: '',
+                mark: '',
+                title: '',
+                shopName: '',
                 isImgShow: false
             }
         },
@@ -43,17 +47,33 @@
             getImg: function (url) {
                 this.firstImg = url;
             },
+            getInfo: function (info) {
+                this.price = info.price.now;
+                this.mark = info.price.mark;
+                this.title = info.title;
+                this.shopName = info.shopName;
+            },
             addCart: function () {
                 this.isImgShow = true;
+
+                const goodsObj = {
+                    id: this.$store.state.goodsList.length,
+                    price: this.price,
+                    mark: this.mark,
+                    title: this.title,
+                    shopName: this.shopName,
+                    count: 1
+                };
+                this.$store.commit('addCart', goodsObj)
             },
             beforeEnter: function (el) {
-                el.style.transform = 'translate(0,0)'
+                el.style.transform = 'translate(-50%, -50%)'
             },
             enter: function (el, done) {
                 /*这里的offsetHeight是强制刷新动画*/
                 el.offsetHeight;
-                el.style.transform = 'translate(-160px,290px) scale(.2)';
-                el.style.transition = ' all .5s ease';
+                el.style.transform = `translate(${-window.innerWidth / 2 + 40}px,${window.innerHeight / 2 - 80}px) scale(.2)`;
+                el.style.transition = ' all .5s ease-in';
                 /*在enter和leave中必须调用done来结束动画 这里的done指的是afterEnter,否则，它们将被同步调用，过渡会立即完成。(不执行之后的方法)*/
                 done();
             },

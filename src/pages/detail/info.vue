@@ -1,12 +1,12 @@
 <template>
     <div class="info">
         <div class="info-price">
-            <span class="info-price-now">¥229</span>
-            <span class="info-price-mark">¥999</span>
+            <span class="info-price-now">¥{{info.price.now}}</span>
+            <span class="info-price-mark">¥{{info.price.mark}}</span>
             <span class="info-price-discount">2.3折</span>
         </div>
         <div class="info-title">
-            <span>【2019夏季新款】V领抽绳褶皱清新小碎花雪纺中长款连衣裙</span>
+            <span>{{info.title}}</span>
         </div>
         <div class="info-credit-box">
             <div class="info-credit-box-item">
@@ -40,7 +40,7 @@
             <div class="info-shop-img">
                 <img src="./brand.png" alt="">
             </div>
-            <a class="info-shop-link" href="#">他池女装特卖旗舰店</a>
+            <a class="info-shop-link" href="#">{{info.shopName}}</a>
             <span class="info-shop-btn">收藏</span>
         </div>
         <div class="info-security">
@@ -192,8 +192,12 @@
                     '../src/pages/detail/img8.jpg',
                     '../src/pages/detail/img9.jpg',
                     '../src/pages/detail/img10.jpg',
-                ]
+                ],
+                info: {price: {now: 229, mark: 388}, title: '【2019夏季新款】V领抽绳褶皱清新小碎花雪纺中长款连衣裙', shopName: '他池女装特卖旗舰店'}
             }
+        },
+        created() {
+            this.$emit('pushInfo', this.info);
         }
     }
 </script>
@@ -414,8 +418,8 @@
             }
         }
 
-        &-img-box{
-            img{
+        &-img-box {
+            img {
                 width: 100%;
                 height: auto;
             }

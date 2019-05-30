@@ -8,7 +8,7 @@
 
 <script>
     import cartTop from './top.vue'
-    import cartContent from './content.vue'
+    import cartContent from './info.vue'
 
     export default {
         name: "index",
@@ -26,6 +26,7 @@
         z-index: $search-z-index;
 
         width: 100%;
+        height: 100%;
         background-color: #fff;
 
     }

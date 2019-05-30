@@ -1,10 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(Vuex);
 
 
+const store = new Vuex.Store({
+    state: {
+        goodsList: []
+    },
+    mutations: {
+        addCart: function (state, info) {
+            if (state.goodsList.length === 0) {
+                return state.goodsList.push(info);
+            }
+            let flag = true;
+            for (const item of state.goodsList) {
+                if (item.id === info.id) {
+                    item.count++;
+                    flag = false;
+                }
+            }
+            if (flag) {
+                state.goodsList.push(info);
+            }
+            console.log(state.goodsList)
+        },
+        delete:function (state,item) {
+            state.goodsList.splice(state.goodsList.indexOf(item),1);
+        }
+    },
+    getters:{
+        getAmount:function (state) {
+            let sum=0;
+            for(const item of state.goodsList){
+                sum+=item.price*item.count;
+            }
+            return sum;
+        }
+    }
+});
 //导入路由
 import router from './router.js'
 //导入scss样式文件
@@ -18,5 +56,6 @@ new Vue({
     render: (r) => {
         return r(App)
     },
-    router
+    router,
+    store
 });
