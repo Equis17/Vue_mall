@@ -33,12 +33,108 @@
                 this.$http.get('http://localhost:3000/getRecommend?name=home&id=' + id).then((res) => {
                     this.list.push(res.body);
                 })
+            },
+            getTest: function () {
+                this.list.push([{
+                    "name": "home",
+                    "url": "../../src/pages/home/3-1.jpg",
+                    "part": 0,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 1
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/3-2.jpg",
+                    "part": 1,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 1
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/3-3.jpg",
+                    "part": 1,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 1
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/3-4.jpg",
+                    "part": 1,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 1
+                }]);
+                this.list.push([{
+                    "name": "home",
+                    "url": "../../src/pages/home/4-1.jpg",
+                    "part": 0,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 2
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/4-2.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/4-2-1.png",
+                    "price": "128",
+                    "id": 2
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/4-3.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/4-3-1.png",
+                    "price": "321",
+                    "id": 2
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/4-4.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/4-4-1.png",
+                    "price": "220",
+                    "id": 2
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/4-5.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/4-5-1.png",
+                    "price": "184",
+                    "id": 2
+                }]);
+                this.list.push([{
+                    "name": "home",
+                    "url": "../../src/pages/home/4-1.jpg",
+                    "part": 0,
+                    "midUrl": null,
+                    "price": null,
+                    "id": 3
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/5-2.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/5-2-1.png",
+                    "price": "102",
+                    "id": 3
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/5-3.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/5-3-1.png",
+                    "price": "88",
+                    "id": 3
+                }, {
+                    "name": "home",
+                    "url": "../../src/pages/home/5-4.jpg",
+                    "part": 1,
+                    "midUrl": "../../src/pages/home/5-4-1.png",
+                    "price": "480",
+                    "id": 3
+                }]);
+
             }
-        },
+        }
+        ,
         created() {
-            for (let i = 1; i <= 3; i++) {
-                this.getRecommend(i);
-            }
+            this.getTest();
         }
     }
 </script>
