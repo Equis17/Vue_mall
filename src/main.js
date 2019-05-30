@@ -10,7 +10,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        goodsList: []
+        goodsList: [],
+        historyList:[]
     },
     mutations: {
         addCart: function (state, info) {
@@ -31,6 +32,25 @@ const store = new Vuex.Store({
         },
         delete:function (state,item) {
             state.goodsList.splice(state.goodsList.indexOf(item),1);
+        },
+        addHistory:function (state,val) {
+            if (state.historyList.length === 0) {
+                return state.historyList.push(val);
+            }
+            let flag = true;
+            for (const item of state.historyList) {
+                if (item.searchWords === val.searchWords) {
+                   return;
+                }
+            }
+            if (flag) {
+                state.historyList.push(val);
+            }
+            console.log(state.historyList)
+
+        },
+        deleteHistory:function (state) {
+            state.historyList=[];
         }
     },
     getters:{

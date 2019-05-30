@@ -10,7 +10,7 @@
                        v-model="searchWords">
             </div>
             <router-link v-if="isSearching" class="bar-right-search" :to="'/search/'+searchWords" slot="right"
-                         @click.native="hideSearchWrap">搜索
+                         @click.native="addHistroy({val:'/search/'+searchWords,searchWords:searchWords})">搜索
             </router-link>
             <i v-else class="bar-right iconfont icon-icon_work" slot="right"><a href="#"></a></i>
         </vNavBar>
@@ -18,16 +18,13 @@
             <div class="bar-wrap-history">
                 <div class="bar-wrap-history-title">
                     <span>最近搜索</span>
-                    <a href="#" @click.default>清空</a>
+                    <a href="#" @click.default="deleteHistory">清空</a>
                     <div style="clear: both"></div>
                 </div>
                 <ul>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
-                    <li class="bar-wrap-history-item"><a href="#">连衣群</a></li>
+                    <li class="bar-wrap-history-item" v-for="(item,i) in this.$store.state.historyList" :key="i">
+                        <router-link :to="item.val">{{item.searchWords}}</router-link>
+                    </li>
                     <div style="clear: both;"></div>
                 </ul>
             </div>
@@ -121,7 +118,6 @@
                     {className: 'iconfont icon-kafei', title: '生活'},
                     {className: 'iconfont icon-zuanshi', title: '唯品'}
                 ],
-                searchHistoryList: [],
                 searchHotList: ['口碑爆款', '面膜', '韩衣都舍t恤女', '防晒', '护肤套装', '连衣裙', '女士t恤', '女凉鞋', '女式衬衫', '女式套装', '蜜丝佛陀 MAX FACTOR', '华为/HUAWEI', '联想/LENOVO', 'XQ', '小猪佩奇/PEPPA PIG'],
                 searchWords: '连衣裙'
             }
@@ -141,6 +137,14 @@
             },
             hideSearchWrap: function () {
                 this.$emit('hideSearchWrap');
+            },
+            addHistroy: function (val) {
+                this.$store.commit('addHistory', val);
+                this.hideSearchWrap()
+            }
+            ,
+            deleteHistory: function () {
+                this.$store.commit('deleteHistory')
             }
         }
     }
