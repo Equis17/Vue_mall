@@ -19,15 +19,18 @@
         data: () => {
             return {list: []}
         },
-        methods:{
-            getBanner:function () {
-                this.$http.get('http://localhost:3000/getBanner?name=home').then((res)=>{
-                    this.list=res.body[0]
+        methods: {
+            getBanner: function () {
+                this.$http.get('http://localhost:3000/getBanner?name=home').then((res) => {
+                    this.list = res.body[0]
                 })
+            },
+            getTest: function () {
+                this.list ={url: '../../src/pages/home/15452109808538.jpg'}
             }
         },
         created() {
-            this.getBanner();
+            this.getTest();
         }
     }
 </script>

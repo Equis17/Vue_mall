@@ -39,6 +39,41 @@
                     this.list1 = res.body;
                     this.list2 = this.list1.splice(res.body.length / 2, res.body.length);
                 })
+            },
+            getTest: function () {
+                this.list1 = [{
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/1.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/2.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/5.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/4.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/6.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/7.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/3.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/8.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/9.png"
+                }, {
+                    "name": "home",
+                    "url": "https://equis17.github.io/mVipServer/public/imgs/%E5%88%86%E7%B1%BB/10.png"
+                }];
+                this.list2 = this.list1.splice(this.list1.length / 2, this.list1.length);
+
             }
         },
         created() {

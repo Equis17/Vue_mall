@@ -42,11 +42,61 @@
             },
             getTest: function () {
                 this.list.push({
-                    url: '/src/pages/home/15452109808538.jpg',
-                    discount: 1,
-                    interval: 1,
-                    title: 'asdsad',
-                    span: '123'
+                    "url": "../../src/pages/home/12.jpg",
+                    "title": "苹果APPLE专场",
+                    "discount": "4.5",
+                    "interval": "10",
+                    "id": 0,
+                    "span": null
+                }, {
+                    "url": "../../src/pages/home/6.jpg",
+                    "title": "迪桑娜DISSONA女包专场",
+                    "discount": "2.2",
+                    "interval": "2",
+                    "id": 1,
+                    "span": "全场折上7.5折，迪桑娜品牌钜献"
+                }, {
+                    "url": "../../src/pages/home/7.jpg",
+                    "title": "伊芙丽eifini女装专场",
+                    "discount": "1",
+                    "interval": "1",
+                    "id": 2,
+                    "span": "全场折上8折！"
+                }, {
+                    "url": "../../src/pages/home/8.jpg",
+                    "title": "GXG男装专场",
+                    "discount": "1.6",
+                    "interval": "1",
+                    "id": 3,
+                    "span": "全场折上8折"
+                }, {
+                    "url": "../../src/pages/home/9.jpg",
+                    "title": "New Balance复古运动特卖专场",
+                    "discount": "2.6",
+                    "interval": "3",
+                    "id": 4,
+                    "span": "全场折上8折"
+                }, {
+                    "url": "../../src/pages/home/10.jpg",
+                    "title": "对白DUIBAI女装-限时直降专场",
+                    "discount": "1.2",
+                    "interval": "5",
+                    "id": 5,
+                    "span": "全场折上7.5折！"
+                }, {
+                    "url": "../../src/pages/home/11.jpg",
+                    "title": "衣品天成男女童爆款专场",
+                    "discount": "1.8",
+                    "interval": "12",
+                    "id": 6,
+                    "span": "全场折上6.8折！"
+                }, {
+                    "url": "../../src/pages/home/13.jpg",
+                    "title": "谜尚Missha化妆品专场",
+                    "discount": "2.5",
+                    "interval": "11",
+                    "id": 7,
+                    "span": "全场折上9.5折,购物满79/109/149元即送相应礼品，数量有限，送完即止"
                 });
             }
             ,
@@ -58,16 +108,16 @@
                     return false;
                 } else {
                     setTimeout(() => {
-                        this.getHot();
+                        this.getTest();
                         this.busy = false;
-                    }, 4000);
+                    }, 2000);
                 }
 
             }
         }
         ,
         created() {
-            this.getHot();
+            this.getTest();
         }
         ,
         directives: {
