@@ -3,7 +3,7 @@
         <h1 class="title">今日特卖•10点上新</h1>
         <vBanner class="hot" v-for="(item,i) in list" :key="i">
             <div class="hot-top" slot="top">
-                <img :src="item.url" alt="">
+                <img v-lazy="item.url" alt="">
             </div>
             <div class="hot-bottom" slot="bottom">
                 <span class="hot-bottom-title">{{item.title}}</span>

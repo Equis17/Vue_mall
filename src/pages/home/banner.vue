@@ -2,7 +2,7 @@
     <div>
         <vBanner class="banner">
             <div class="banner-top" slot="top">
-                <img :src=list.url alt="">
+                <img v-lazy=list.url alt="">
             </div>
         </vBanner>
     </div>

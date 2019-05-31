@@ -4,7 +4,7 @@
             <li class="goods-item" v-for="(item ,i) in itemList" :key="i">
                 <div class="goods-item-img">
                     <router-link to="/detail/1">
-                        <img :src="item.url" alt="">
+                        <img v-lazy="item.url" alt="">
                     </router-link>
                 </div>
                 <div class="goods-item-price">

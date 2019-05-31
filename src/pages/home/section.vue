@@ -4,7 +4,7 @@
             <ul slot="center" class="section-part-center">
                 <li v-for="(item,i) in list1" :key="i">
                     <div class="section-part-center-background"></div>
-                    <img :src="item.url" alt="">
+                    <img v-lazy="item.url" alt="">
                 </li>
             </ul>
         </vNavBar>
@@ -12,7 +12,7 @@
             <ul slot="center" class="section-part-center">
                 <li v-for="(item,i) in list2" :key="i">
                     <div class="section-part-center-background"></div>
-                    <img :src="item.url" alt="">
+                    <img v-lazy="item.url" alt="">
                 </li>
             </ul>
         </vNavBar>

@@ -2,10 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Vuex from 'vuex'
+import VueLazyLoad from 'vue-lazyload'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(Vuex);
+Vue.use(VueLazyLoad,{
+    error:require('./assets/img/error.png'),
+    loading:require('./assets/img/loading.gif')
+});
+
 
 
 const store = new Vuex.Store({

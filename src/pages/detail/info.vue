@@ -170,7 +170,7 @@
         </div>
 
         <div class="info-img-box">
-            <img v-for="(item,i) in imgUrl" :src="item" alt="" :key="i">
+            <img v-for="(item,i) in imgUrl" v-lazy="item" alt="" :key="i">
         </div>
 
     </div>
@@ -423,6 +423,8 @@
                 width: 100%;
                 height: auto;
             }
+
+            margin-bottom: 80px;
         }
     }
 </style>

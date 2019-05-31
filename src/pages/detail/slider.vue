@@ -9,7 +9,7 @@
                 v-if="sliders.length"
         >
             <swiper-slide v-for="(item, index) in sliders" :key="index">
-                <img :src=item.picUrl alt="" class="slider-img">
+                <img v-lazy=item.picUrl alt="" class="slider-img">
             </swiper-slide>
             <div></div>
         </vSlider>

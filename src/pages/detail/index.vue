@@ -57,7 +57,7 @@
                 this.isImgShow = true;
 
                 const goodsObj = {
-                    id: this.$store.state.goodsList.length,
+                    id: 0,
                     price: this.price,
                     mark: this.mark,
                     title: this.title,
