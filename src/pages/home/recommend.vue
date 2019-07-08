@@ -3,7 +3,7 @@
         <vBanner class="banner" v-for="(listItem,i) in list" :key="i">
 
             <div class="banner-top" slot="top">
-                <img v-lazy=listItem[0].url alt="">
+                <img src=listItem[0].url alt="">
             </div>
             <ul class="banner-bottom" slot="bottom">
                 <li class="banner-bottom-item" v-for="j in listItem.length-1">

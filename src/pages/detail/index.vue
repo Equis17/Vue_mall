@@ -80,9 +80,6 @@
             afterEnter: function (el) {
                 this.isImgShow = !this.isImgShow;
             }
-        },
-        mounted() {
-            console.log(this.firstImg)
         }
     }
 </script>

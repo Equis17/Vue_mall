@@ -9,7 +9,7 @@
                 v-if="sliders.length"
         >
             <swiper-slide v-for="(item, index) in sliders" :key="index">
-                <img v-lazy=item.picUrl alt="" class="slider-img">
+                <img :src=item.picUrl alt="" class="slider-img">
             </swiper-slide>
             <div></div>
         </vSlider>
@@ -28,7 +28,7 @@
             vSlider,
             swiperSlide
         },
-        data:function () {
+        data: function () {
             return {
                 direction: 'horizontal',
                 loop: true,
@@ -41,8 +41,8 @@
                     {linkUrl: '', picUrl: '../src/pages/detail/4.jpg'}
                 ]
             }
-        },created() {
-            this.$emit('pushImg',this.sliders[0].picUrl)
+        }, created() {
+            this.$emit('pushImg', this.sliders[0].picUrl)
         }
     }
 </script>

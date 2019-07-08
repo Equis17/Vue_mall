@@ -12,7 +12,7 @@
                 <span class="hot-bottom-label">{{item.span}}</span>
             </div>
         </vBanner>
-        <h1 class="title" v-show="busy&&times!==4">正在加载请等待</h1>
+        <h1 class="title" v-show="busy&&!done">正在加载请等待</h1>
         <h1 class="title" v-if="done">已加载完毕</h1>
     </div>
 </template>
