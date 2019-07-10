@@ -193,7 +193,7 @@
                     '../src/pages/detail/img9.jpg',
                     '../src/pages/detail/img10.jpg',
                 ],
-                info: {price: {now: 229, mark: 388}, title: '【2019夏季新款】V领抽绳褶皱清新小碎花雪纺中长款连衣裙', shopName: '他池女装特卖旗舰店'}
+                info: {price: {now: 229, mark: 388}, title: '【2019夏季新款】V领抽绳褶皱清新小碎花雪纺中长款连衣裙.', shopName: '他池女装特卖旗舰店'}
             }
         },
         created() {
